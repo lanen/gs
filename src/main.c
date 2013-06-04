@@ -4,7 +4,7 @@
 
 int main(int argc, char **argv){
 
-    gs_init_logger("/home/dev/Documents/Code/dyd/Server/etc/zlog.conf");
+    gs_init_logger("etc/zlog.conf");
     
     gs_logger_info("开始初始化服务器");
 
