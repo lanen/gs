@@ -12,5 +12,6 @@ int main(int argc, char **argv){
 
     gs_logger_info("加载静态数据");
 
+
     return 0;
 }

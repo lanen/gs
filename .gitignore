@@ -12,7 +12,14 @@ build
 *.so.*
 *.dylib
 
+# ctags file
+tags
 # Executables
 *.exe
 *.out
 *.app
+
+# swp file
+*.swp
+*.dblite
+
