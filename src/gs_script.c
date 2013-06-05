@@ -22,14 +22,31 @@
 #include "lauxlib.h"
 #include "lualib.h"
 
-void v(void){
-
-	lua_State *L = lua_open();
-	luaopen_base(L);
-	luaopen_table(L);
-	luaopen_io(L);
-	luaopen_string(L);
-	luaopen_math(L);
+#include "gs_logger.h"
 
 
+gs_script_engine_t *gs_script_engine_start(){
+
+	gs_logger_info("初始化lua 脚本引擎");
+
+
+	gs_script_engine_t *engine;
+
+
+	engine.lua_state = lua_open();
+
+	luaopen_base(engine.lua_state);
+	luaopen_table(engine.lua_state);
+	luaopen_io(engine.lua_state);
+	luaopen_string(engine.lua_state);
+	luaopen_math(engine.lua_state);
+
+	return engine;
+}
+
+void gs_script_engine_stop(gs_script_engine_t *engine){
+
+
+
+}
 }
