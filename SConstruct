@@ -1,5 +1,5 @@
-
-Program('bin/main',Glob('src/*.c'),srcdir='src',
+env = Environment(CCFLAGS='-g') 
+env.Program('bin/main',Glob('src/*.c'),srcdir='src',
         
          LIBS = ['zlog','pthread','lua','m','dl'],
          INCLUDEPATH='usr/local/include',

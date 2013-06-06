@@ -35,7 +35,7 @@
 
 #define MAX_EVENTS 10
 
-void gs_epoll_event(int *socketfd,  struct epoll_event *ep_event);
+void gs_epoll_event(int *socketfd,struct epoll_event *ep_event);
 void gs_epoll_init( int *socketfd );
 void gs_socket_create(int *socketfd, struct sockaddr_in *local_addr);
 
@@ -112,7 +112,6 @@ void gs_epoll_init( int *socketfd ){
     }
 
     int nfds;
-    
     while (1){
         nfds = epoll_wait(epollfd, events, MAX_EVENTS, -1);
         if(nfds == -1){
@@ -122,15 +121,16 @@ void gs_epoll_init( int *socketfd ){
         int i;
         for(i =0;i<nfds;i++){
 
-            gs_epoll_event(socketfd, &events[i]);
+            gs_epoll_event(*socketfd, &events[i]);
        }
     }
+
 
 }
 
 void gs_epoll_event(int *socketfd,struct epoll_event *ep_event){
      
-    if(ep_event->data.fd == *socketfd){
+    if(ep_event.data.fd == *socketfd){
     }else{
     }
  
