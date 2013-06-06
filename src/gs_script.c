@@ -25,28 +25,29 @@
 #include "gs_logger.h"
 
 
-gs_script_engine_t *gs_script_engine_start(){
+void gs_script_engine_start(gs_script_engine_t *engine){
 
 	gs_logger_info("初始化lua 脚本引擎");
 
 
-	gs_script_engine_t *engine;
+	engine->luaState = luaL_newstate();
 
+ 
+    luaL_openlibs(engine->luaState);
+    luaL_dofile(engine->luaState, "test.lua");
+    //lua_close(engine->luaState);
 
-	engine.lua_state = lua_open();
-
-	luaopen_base(engine.lua_state);
-	luaopen_table(engine.lua_state);
-	luaopen_io(engine.lua_state);
-	luaopen_string(engine.lua_state);
-	luaopen_math(engine.lua_state);
-
-	return engine;
 }
 
 void gs_script_engine_stop(gs_script_engine_t *engine){
 
+    //关闭lua 引擎
 
+    lua_close(engine->luaState);
 
 }
+
+void gs_script_run(gs_script_engine_t *engine, const char *scriptname){
+
+    luaL_dofile(engine->luaState, scriptname);
 }

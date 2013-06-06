@@ -2,14 +2,17 @@
 #define NG_SCRIPT_H
 
 #include "lua.h"
-typedef struct gs_script_engine {
+#include "lualib.h"
+#include "lauxlib.h"
 
-	lua_State *lua_state;
+typedef struct gs_script_engine_s {
+
+	lua_State *luaState;
 
 } gs_script_engine_t;
 
 
-gs_script_engine_t *gs_script_engine_start();
+void gs_script_engine_start(gs_script_engine_t *engine);
 void gs_script_engine_stop(gs_script_engine_t *engine);
-
+void gs_script_run(gs_script_engine_t *engine, const char *scriptname);
 #endif
