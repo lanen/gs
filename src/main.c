@@ -30,7 +30,8 @@ int main(int argc, char **argv){
         gs_logger_info("faile at socket");
         running = 0;
     }
-    
+
+/*/	 
     while(running){
     
         sleep(3);
@@ -40,8 +41,7 @@ int main(int argc, char **argv){
 
     gs_script_engine_stop( &lua_engine );
     gs_net_server_stop( &socket_server );
-     
-
+*/
     return 0;
 
 }
