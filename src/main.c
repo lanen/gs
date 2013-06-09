@@ -10,13 +10,13 @@ static gs_socket_server_t socket_server;
 
 int main(int argc, char **argv){
 
-    gs_init_logger("etc/zlog.conf");
+    gs_init_logger("etc/zlog.conf","my_cat");
     
-    gs_logger_info("开始初始化服务器");
+    gs_info("开始初始化服务器");
 
-    gs_logger_info("初始化数据库链接");
+    gs_info("初始化数据库链接");
 
-    gs_logger_info("加载静态数据");
+    gs_info("加载静态数据");
 
     gs_script_engine_start( &lua_engine );	
 
@@ -27,7 +27,7 @@ int main(int argc, char **argv){
 
     int socketErrno = gs_net_server_start( &socket_server);
     if( 0 != socketErrno){
-        gs_logger_info("faile at socket");
+        gs_info("faile at socket");
         running = 0;
     }
 
@@ -35,7 +35,7 @@ int main(int argc, char **argv){
     while(running){
     
         sleep(3);
-        gs_logger_info("主线程启动一次统计");
+        gs_info("主线程启动一次统计");
 
     }
 

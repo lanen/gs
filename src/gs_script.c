@@ -27,7 +27,7 @@
 
 void gs_script_engine_start(gs_script_engine_t *engine){
 
-	gs_logger_info("初始化lua 脚本引擎");
+	gs_info("初始化lua 脚本引擎");
 
 
 	engine->luaState = luaL_newstate();
