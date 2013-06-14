@@ -1,7 +1,11 @@
 bin
 # Object files
 *.o
+*.project
+*.cproject
+.settings
 
+*~
 # Libraries
 *.lib
 *.a

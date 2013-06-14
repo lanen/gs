@@ -273,8 +273,8 @@ int gs_net_server_start(gs_socket_server_t *socket_server){
     pthread_t socket_thread_fd;
 
 
-	gs_socket_subroutin(NULL);
-//    errno = pthread_create(&socket_thread_fd, NULL, gs_socket_subroutin, socket_server);
+	//gs_socket_subroutin(NULL);
+    errno = pthread_create(&socket_thread_fd, NULL, gs_socket_subroutin, socket_server);
 
     return err;
 }

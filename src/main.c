@@ -26,12 +26,13 @@ int main(int argc, char **argv){
     int running = 1;
 
     int socketErrno = gs_net_server_start( &socket_server);
+
     if( 0 != socketErrno){
         gs_info("faile at socket");
         running = 0;
     }
 
-/*/	 
+//*/
     while(running){
     
         sleep(3);
@@ -41,7 +42,7 @@ int main(int argc, char **argv){
 
     gs_script_engine_stop( &lua_engine );
     gs_net_server_stop( &socket_server );
-*/
+//*/
     return 0;
 
 }
